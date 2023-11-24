@@ -1,24 +1,29 @@
-import Navbar from "./Components/Navbar";
-import React from "react";
+import "./App.css";
 import ItemListContainer from "./Components/Item/ItemListContainer";
-import Error404 from "./Components/Error404";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ItemDetailContainer from "../src/Components/ItemDetail/ItemDetailContainer";
-import CartContextProvider from "./Components/Context/CartContext";
+import NavBar from "../src/Components/Navbar/Navbar";
+import Error from "../src/Components/Error";
+import ItemDetailContainer from "./Components/ItemDetail/ItemDetailContainer";
+import Cart from "../src/Components/Cart/Cart";
+import CartProvider from "../src/Components/Context/CartContext";
+import { Checkout } from "../src/Components/CheckOut/Checkout";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <BrowserRouter>
-        <CartContextProvider>
-          <Navbar />
+        <CartProvider>
+          <NavBar />
+
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/category/:id" element={<ItemListContainer />} />
             <Route path="/item/:id" element={<ItemDetailContainer />} />
-            <Route path="*" element={<Error404 />} />
+            <Route path={"/cart"} element={<Cart />} />
+            <Route path={"/checkout"} element={<Checkout />} />
+            <Route path="*" element={<Error />} />
           </Routes>
-        </CartContextProvider>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

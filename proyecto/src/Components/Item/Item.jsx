@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import './item.css'
 
 const Item = ({item}) => {
   return (
@@ -10,7 +10,7 @@ const Item = ({item}) => {
      <div className='card border border-0'>
         <img src={item.img} className='card-img-top' alt={item.title}/>
         <div className='card-body text-center'>
-         <p className='card-text'>{item.title} - $ {item.price}</p>
+         <p className='card-text'>{item.title} - ${item.price}</p>
         </div>
     </div>  
     </div>

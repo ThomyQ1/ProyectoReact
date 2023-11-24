@@ -9,8 +9,8 @@ const Cart = () => {
   if (cart.length === 0) {
     return (
       <>
-        <p>El carrito esta vacio</p>
-        <Link to="/">Volver a los productos</Link>
+        <p>No hay elementos en el carrito</p>
+        <Link to="/">Hacer compras</Link>
       </>
     );
   }
